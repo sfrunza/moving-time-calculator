@@ -25,8 +25,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-muted`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-muted dark:bg-background`}
       >
         <ThemeProvider
           attribute="class"
