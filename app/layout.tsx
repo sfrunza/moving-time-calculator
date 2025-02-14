@@ -16,6 +16,20 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Moving Time Calculator',
   description: 'Calculate your moving time',
+  manifest: '/site.webmanifest',
+  other: {
+    'apple-mobile-web-app-status-bar-style': 'black-translucent',
+  },
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_BASE_URL,
+  },
+  openGraph: {
+    title: 'Moving Time Calculator',
+    description: 'Calculate your moving time',
+    url: process.env.NEXT_PUBLIC_BASE_URL,
+    siteName: 'Moving Time Calculator',
+    images: [{ url: '/og-image.png' }],
+  },
 };
 
 export default function RootLayout({
@@ -25,13 +39,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-muted dark:bg-background`}
       >

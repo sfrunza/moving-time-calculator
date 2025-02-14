@@ -1,0 +1,8 @@
+{
+  "name": "Moving Time Calculator",
+  "short_name": "TimeCalc",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#fff",
+  "background_color": "#fff"
+}

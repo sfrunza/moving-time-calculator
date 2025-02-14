@@ -6,7 +6,7 @@ export default function Home() {
       <div className="flex justify-end p-4">
         <ModeToggle />
       </div>
-      <div className="px-4 pb-10">
+      <div className="px-4 pb-10 mt-4">
         <MovingTimeCalculator />
       </div>
     </main>
