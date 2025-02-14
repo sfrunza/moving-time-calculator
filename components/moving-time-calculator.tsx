@@ -23,7 +23,6 @@ export default function MovingTimeCalculator(): React.ReactElement {
   const [startTime, setStartTime] = useState<string>(START_TIME_DEFAULT);
   const [endTime, setEndTime] = useState<string>(END_TIME_DEFAULT);
 
-  console.log(startTime);
   const [timeOff, setTimeOff] = useState<string>('0');
   const [travelTime, setTravelTime] = useState<string>('60');
   const [cashDiscount, setCashDiscount] = useState<string>('0');
@@ -32,12 +31,10 @@ export default function MovingTimeCalculator(): React.ReactElement {
   const [totalTimeReal, setTotalTimeReal] = useState<number>(0);
   const [totalTimeRounded, setTotalTimeRounded] = useState<number>(0);
   const [customAmount, setCustomAmount] = useState<string>('');
-  // const [totalAmount, setTotalAmount] = useState<number>(0);
-  const [discountedTotal, setDiscountedTotal] = useState<number>(0);
   const [isCalculated, setIsCalculated] = useState<boolean>(false);
 
   const calculateTotal = (): void => {
-    let start: Date = new Date(`2000-01-01T${startTime}:00`);
+    const start: Date = new Date(`2000-01-01T${startTime}:00`);
     let end: Date = new Date(`2000-01-01T${endTime}:00`);
 
     if (end < start) {
@@ -74,7 +71,6 @@ export default function MovingTimeCalculator(): React.ReactElement {
     setTravelTime('0');
     setTimeOff('0');
     setLaborTime(0);
-    setDiscountedTotal(0);
     setIsCalculated(false);
     setTotalTimeRounded(0);
     setTotalTimeReal(0);
