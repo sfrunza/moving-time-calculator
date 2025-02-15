@@ -84,6 +84,7 @@ export default function MovingTimeCalculator(): React.ReactElement {
   const formattedTravelTime = convertMinutesToHoursAndMinutes(
     Number(travelTime)
   );
+  const formattedTimeOff = convertMinutesToHoursAndMinutes(Number(timeOff));
   const formattedTotalTimeReal = convertMinutesToHoursAndMinutes(totalTimeReal);
 
   const totalAmount = (totalTimeRounded / 60) * Number(hourlyRate);
@@ -168,7 +169,7 @@ export default function MovingTimeCalculator(): React.ReactElement {
               <TimeSection
                 formattedLaborTime={formattedLaborTime}
                 travelTime={formattedTravelTime}
-                timeOff={Number(timeOff)}
+                timeOff={formattedTimeOff}
                 formattedTotalTimeReal={formattedTotalTimeReal}
                 formattedTotalTimeRounded={formattedTotalTimeRounded}
               />
@@ -248,7 +249,7 @@ export default function MovingTimeCalculator(): React.ReactElement {
 interface TimeSectionProps {
   formattedLaborTime: string;
   travelTime: string;
-  timeOff: number;
+  timeOff: string;
   formattedTotalTimeReal: string;
   formattedTotalTimeRounded: string;
 }
@@ -260,6 +261,7 @@ function TimeSection({
   formattedTotalTimeReal,
   formattedTotalTimeRounded,
 }: TimeSectionProps): React.ReactElement {
+  console.log(timeOff);
   return (
     <div className="space-y-2">
       <div className="flex justify-between">
@@ -270,10 +272,10 @@ function TimeSection({
         <p>Travel time</p>
         <p>{travelTime}</p>
       </div>
-      {timeOff > 0 && (
+      {timeOff && (
         <div className="flex justify-between">
           <p>Time off</p>
-          <p>{timeOff} min</p>
+          <p>{timeOff}</p>
         </div>
       )}
       <div className="flex justify-between">
