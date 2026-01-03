@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/long-distance`,
   },
+  manifest: '/long-distance.webmanifest',
 };
 
 export default function LongDistance() {
