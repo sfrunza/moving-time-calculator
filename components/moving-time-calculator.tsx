@@ -19,7 +19,7 @@ const END_TIME_DEFAULT = new Date().toLocaleTimeString('en-US', {
   hour12: false,
 });
 
-export default function MovingTimeCalculator(): React.ReactElement {
+export function MovingTimeCalculator() {
   const [startTime, setStartTime] = useState<string>(START_TIME_DEFAULT);
   const [endTime, setEndTime] = useState<string>(END_TIME_DEFAULT);
 
@@ -106,32 +106,34 @@ export default function MovingTimeCalculator(): React.ReactElement {
       <CardContent>
         <div className="space-y-6">
           <div className="grid grid-cols-2 gap-4">
-            <div className="grid gap-1.5">
+            <div className="grid gap-2">
               <Label htmlFor="start-time">Start Time</Label>
               <Input
-                id="start-time"
                 type="time"
+                id="start-time"
                 value={startTime}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                onChange={(e) => {
                   setStartTime(e.target.value);
                   setIsCalculated(false);
                 }}
+                className="appearance-none"
               />
             </div>
-            <div className="grid gap-1.5">
+            <div className="grid gap-2">
               <Label htmlFor="end-time">End Time</Label>
               <Input
-                id="end-time"
                 type="time"
+                id="end-time"
                 value={endTime}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                onChange={(e) => {
                   setEndTime(e.target.value);
                   setIsCalculated(false);
                 }}
+                className="appearance-none"
               />
             </div>
           </div>
-          <div className="grid gap-1.5">
+          <div className="grid gap-2">
             <Label htmlFor="travel-time">Travel Time (minutes)</Label>
             <Input
               id="travel-time"
@@ -139,13 +141,13 @@ export default function MovingTimeCalculator(): React.ReactElement {
               inputMode="numeric"
               pattern="[0-9]*"
               value={travelTime}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              onChange={(e) => {
                 setTravelTime(e.target.value);
                 setIsCalculated(false);
               }}
             />
           </div>
-          <div className="grid gap-1.5">
+          <div className="grid gap-2">
             <Label htmlFor="time-off">Time Off (minutes)</Label>
             <Input
               id="time-off"
@@ -153,7 +155,7 @@ export default function MovingTimeCalculator(): React.ReactElement {
               inputMode="numeric"
               pattern="[0-9]*"
               value={timeOff}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              onChange={(e) => {
                 setTimeOff(e.target.value);
                 setIsCalculated(false);
               }}
@@ -183,7 +185,7 @@ export default function MovingTimeCalculator(): React.ReactElement {
                   inputMode="numeric"
                   pattern="[0-9]*"
                   value={hourlyRate}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  onChange={(e) => {
                     setHourlyRate(e.target.value);
                   }}
                 />
@@ -206,7 +208,7 @@ export default function MovingTimeCalculator(): React.ReactElement {
                   inputMode="numeric"
                   pattern="[0-9]*"
                   value={cashDiscount}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  onChange={(e) => {
                     const value = e.target.value;
                     if (value.length > 3) return;
                     setCashDiscount(value);
@@ -220,9 +222,7 @@ export default function MovingTimeCalculator(): React.ReactElement {
                   inputMode="numeric"
                   pattern="[0-9]*"
                   value={customAmount}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setCustomAmount(e.target.value)
-                  }
+                  onChange={(e) => setCustomAmount(e.target.value)}
                   className="col-span-3"
                 />
                 <span>-</span>
